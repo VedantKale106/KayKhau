@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(45deg, #f6d365 0%, #fda085 100%);
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+            color: #2d3436;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2d3436;
+            margin-bottom: 3rem;
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #fd79a8;
+            border-radius: 2px;
+        }
+
+        .food-detail {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            padding: 1.5rem;
+        }
+
+        .food-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .food-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(0,0,0,0.2);
+        }
+
+        .food-info {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .food-info p {
+            font-size: 1.1rem;
+            color: #2d3436;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .food-info strong {
+            color: #fd79a8;
+            min-width: 130px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .veg-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            background-color: #00b894;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,184,148,0.3);
+        }
+
+        .non-veg-badge {
+            background-color: #ff7675;
+            box-shadow: 0 4px 15px rgba(255,118,117,0.3);
+        }
+
+        .rating {
+            color: #fdcb6e;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            color: #00b894;
+            font-weight: 600;
+        }
+
+        .other-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .option-tag {
+            background: #81ecec;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #2d3436;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(129,236,236,0.3);
+        }
+
+        .option-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(129,236,236,0.4);
+        }
+
+        @media (max-width: 968px) {
+            .food-detail {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .food-image {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 580px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .food-info {
+                padding: 1.5rem;
+            }
+
+            .food-info p {
+                font-size: 1rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .food-info strong {
+                min-width: auto;
+            }
+
+            .food-image {
+                height: 300px;
+            }
+
+            .option-tag {
+                padding: 0.4rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ food.name }}</h2>
+    <div class="food-detail">
+        <img src="{{ url_for('static', filename='images/' + food.imageurl.split('/')[-1]) }}" alt="{{ food.name }}" class="food-image">
+        <div class="food-info">
+            <a href="{{ food.location }}" style="text-decoration: none; color: inherit;" target="_blank">
+                <p><strong>Location</strong>: Click to See on Maps</p>
+            </a>
+            
+              
+            <p><strong>Hotel</strong> {{ food.hotelname }}</p>
+            <p><strong>Type</strong> {{ food.type }}</p>
+            <p><strong>Rating</strong> <span class="rating">{{ food.rating }}/5 Stars</span></p>
+            <p><strong>Price</strong> <span class="price">₹{{ food.price }}</span></p>
+            <p>
+                <strong>Veg</strong> 
+                <span class="veg-badge {% if not food.veg %}non-veg-badge{% endif %}">
+                    {{ "Yes" if food.veg else "No" }}
+                </span>
+            </p>
+            <p>
+                <strong>Other Options</strong>
+                <span class="other-options">
+                    {% for option in food.otheroptions %}
+                        <span class="option-tag">{{ option }}</span>
+                    {% endfor %}
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <a href="/homepage" style="position: fixed; bottom: 20px; right: 20px; background-color: rgb(255, 75, 51); color: white; padding: 15px; border-radius: 50%; font-size: 24px; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); animation: float 2s infinite ease-in-out;">
+        🏠
+    </a>
+    
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KayKhau - Filter Foods</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <style>
+        :root {
+            --primary: #5CB338;
+            --primary-light: #A8D86B;
+            --accent: #FB4141;
+            --background: #f5f5f5;
+            --card-bg: #ffffff;
+            --text-dark: #333;
+            --text-light: #666;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .filter-form {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 3rem;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        select, input[type="number"] {
+            padding: 0.8rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: var(--text-dark);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .food-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .food-info {
+            padding: 1.5rem;
+        }
+
+        .food-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .food-details {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .food-price {
+            color: var(--accent);
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            background-color: var(--primary-light);
+            color: var(--text-dark);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .filter-form {
+                padding: 1.5rem;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .food-card {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .food-card:nth-child(n) {
+            animation-delay: calc(n * 0.1s);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Filter Foods</h1>
+            <p class="subtitle">Find the perfect dish for your taste and budget</p>
+        </header>
+
+        <form method="post" class="filter-form">
+            <div class="filter-grid">
+                <div class="form-group">
+                    <label for="type">Cuisine Type</label>
+                    <select name="type" id="type">
+                        <option value="">All Types</option>
+                        {% for type in cuisine_types %}
+                        <option value="{{ type }}" {% if selected_type == type %}selected{% endif %}>{{ type }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="landmark">Landmark</label>
+                    <select name="landmark" id="landmark">
+                        <option value="">All Landmarks</option>
+                        {% for loc in landmark %}
+                        <option value="{{ loc }}" {% if selected_landmark == loc %}selected{% endif %}>{{ loc }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="price">Maximum Price (₹)</label>
+                    <input type="number" name="max_price" id="price" min="0" value="{{ selected_price }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="rating">Minimum Rating</label>
+                    <select name="min_rating" id="rating">
+                        <option value="">Any Rating</option>
+                        <option value="4.5" {% if selected_rating == "4.5" %}selected{% endif %}>4.5+</option>
+                        <option value="4.0" {% if selected_rating == "4.0" %}selected{% endif %}>4.0+</option>
+                        <option value="3.5" {% if selected_rating == "3.5" %}selected{% endif %}>3.5+</option>
+                        <option value="3.0" {% if selected_rating == "3.0" %}selected{% endif %}>3.0+</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Dietary Preferences</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="veg" value="true" {% if is_veg %}checked{% endif %}>
+                        Vegetarian Only
+                    </label>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Apply Filters</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form>
+
+        <div class="results-grid">
+            {% for food in foods %}
+            <a href="{{ url_for('food_details', food_name=food.name) }}" class="food-card">
+                <div class="food-info">
+                    <img src="{{ food.imageurl }}" alt="{{ food.name }}" class="food-image" 
+     style="width: 100px; height: 100px; margin-right: 10%; float: left; border-radius: 10%;">
+
+                    <h3 class="food-name">{{ food.name }}</h3>
+                    <div class="food-details">
+                        <p>{{ food.hotelname }} • {{ food.landmark }}</p>
+                        <p>Rating: {{ food.rating }} ⭐</p>
+                        <p class="food-price">₹{{ food.price }}</p>
+                    </div>
+                    <span class="tag">{{ food.type }}</span>
+                    {% if food.veg %}
+                    <span class="tag">Vegetarian</span>
+                    {% endif %}
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        
+    </div>
+    <a href="/homepage" style="position: fixed; bottom: 20px; right: 20px; background-color: rgb(255, 75, 51); color: white; padding: 15px; border-radius: 50%; font-size: 24px; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); animation: float 2s infinite ease-in-out;">
+        🏠
+    </a>
+    
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</body>
+</html>
