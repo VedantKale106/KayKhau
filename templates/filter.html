@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,7 +82,8 @@
             color: var(--text-dark);
         }
 
-        select, input[type="number"] {
+        select,
+        input[type="number"] {
             padding: 0.8rem 1rem;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
@@ -90,7 +92,8 @@
             transition: border-color 0.3s ease;
         }
 
-        select:focus, input:focus {
+        select:focus,
+        input:focus {
             outline: none;
             border-color: var(--primary);
         }
@@ -232,6 +235,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -247,6 +251,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -254,41 +259,62 @@
             <p class="subtitle">Find the perfect dish for your taste and budget</p>
         </header>
 
+        <style>
+            @media (max-width: 768px) {
+                .filter-grid {
+                    grid-template-columns: 1fr !important;
+                }
+
+                .form-group select,
+                .form-group input {
+                    width: 100% !important;
+                    padding: 8px !important;
+                    font-size: 16px !important;
+                }
+
+                .button-group button {
+                    width: 100% !important;
+                }
+            }
+        </style>
+
         <form method="post" class="filter-form">
-            <div class="filter-grid">
+            <div class="filter-grid"
+                style="display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
                 <div class="form-group">
                     <label for="type">Cuisine Type</label>
-                    <select name="type" id="type">
+                    <select name="type" id="type" style="padding: 8px; font-size: 14px;">
                         <option value="">All Types</option>
                         {% for type in cuisine_types %}
-                        <option value="{{ type }}" {% if selected_type == type %}selected{% endif %}>{{ type }}</option>
+                        <option value="{{ type }}" {% if selected_type==type %}selected{% endif %}>{{ type }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="landmark">Landmark</label>
-                    <select name="landmark" id="landmark">
+                    <select name="landmark" id="landmark" style="padding: 8px; font-size: 14px;">
                         <option value="">All Landmarks</option>
                         {% for loc in landmark %}
-                        <option value="{{ loc }}" {% if selected_landmark == loc %}selected{% endif %}>{{ loc }}</option>
+                        <option value="{{ loc }}" {% if selected_landmark==loc %}selected{% endif %}>{{ loc }}</option>
                         {% endfor %}
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="price">Maximum Price (₹)</label>
-                    <input type="number" name="max_price" id="price" min="0" value="{{ selected_price }}">
+                    <input type="number" name="max_price" id="price" min="0" value="{{ selected_price }}"
+                        style="padding: 8px; font-size: 14px;">
                 </div>
 
                 <div class="form-group">
                     <label for="rating">Minimum Rating</label>
-                    <select name="min_rating" id="rating">
+                    <select name="min_rating" id="rating" style="padding: 8px; font-size: 14px;">
                         <option value="">Any Rating</option>
-                        <option value="4.5" {% if selected_rating == "4.5" %}selected{% endif %}>4.5+</option>
-                        <option value="4.0" {% if selected_rating == "4.0" %}selected{% endif %}>4.0+</option>
-                        <option value="3.5" {% if selected_rating == "3.5" %}selected{% endif %}>3.5+</option>
-                        <option value="3.0" {% if selected_rating == "3.0" %}selected{% endif %}>3.0+</option>
+                        <option value="4.5" {% if selected_rating=="4.5" %}selected{% endif %}>4.5+</option>
+                        <option value="4.0" {% if selected_rating=="4.0" %}selected{% endif %}>4.0+</option>
+                        <option value="3.5" {% if selected_rating=="3.5" %}selected{% endif %}>3.5+</option>
+                        <option value="3.0" {% if selected_rating=="3.0" %}selected{% endif %}>3.0+</option>
                     </select>
                 </div>
             </div>
@@ -296,52 +322,96 @@
             <div class="form-group">
                 <label>Dietary Preferences</label>
                 <div class="checkbox-group">
-                    <label class="checkbox-item">
+                    <label class="checkbox-item" style="display: block;">
                         <input type="checkbox" name="veg" value="true" {% if is_veg %}checked{% endif %}>
                         Vegetarian Only
                     </label>
                 </div>
             </div>
 
-            <div class="button-group">
-                <button type="submit" class="btn btn-primary">Apply Filters</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
+            <div class="button-group" style="display: flex; gap: 8px;">
+                <button type="submit" class="btn btn-primary" style="padding: 8px 16px; font-size: 14px;">Apply
+                    Filters</button>
+                <button type="reset" class="btn btn-secondary"
+                    style="padding: 8px 16px; font-size: 14px;">Reset</button>
             </div>
         </form>
 
-        <div class="results-grid">
-            {% for food in foods %}
-            <a href="{{ url_for('food_details', food_name=food.name) }}" class="food-card">
-                <div class="food-info">
-                    <img src="{{ food.imageurl }}" alt="{{ food.name }}" class="food-image" 
-     style="width: 100px; height: 100px; margin-right: 10%; float: left; border-radius: 10%;">
 
-                    <h3 class="food-name">{{ food.name }}</h3>
-                    <div class="food-details">
-                        <p>{{ food.hotelname }} • {{ food.landmark }}</p>
-                        <p>Rating: {{ food.rating }} ⭐</p>
-                        <p class="food-price">₹{{ food.price }}</p>
+        <div class="results-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px;">
+            {% for food in foods %}
+            <a href="{{ url_for('food_details', food_name=food.name) }}" class="food-card"
+               style="display: block; background-color: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); overflow: hidden; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;">
+                <div class="food-info" style="padding: 20px; display: flex; flex-direction: row; align-items: center; text-align: left;">
+                    <!-- Image on the left -->
+                    <img src="{{ food.imageurl }}" alt="{{ food.name }}" class="food-image"
+                         style="width: 100px; height: 100px; border-radius: 10%; object-fit: cover; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+                    <!-- Food name on the right -->
+                    <h3 class="food-name" style="font-size: 20px; font-weight: bold; color: #333; margin-left: 15px; transition: color 0.3s ease;">{{ food.name }}</h3>
+                </div>
+                <div class="food-details" style="padding: 0 20px 20px; font-size: 14px; color: #777; line-height: 1.5;">
+                    <p>{{ food.hotelname }} • {{ food.landmark }}</p>
+                    <p>Rating: {{ food.rating }} ⭐</p>
+                    <p class="food-price" style="font-weight: bold; color: #e91e63;">₹{{ food.price }}</p>
+                    <div class="tags" style="margin-top: 10px; display: flex; flex-wrap: wrap;">
+                        <span class="tag" style="background: linear-gradient(135deg, #ff7b7b, #ff62a1); padding: 5px 15px; border-radius: 25px; font-size: 12px; color: white; margin-right: 10px; text-transform: uppercase; font-weight: bold; transition: transform 0.3s ease;">
+                            {{ food.type }}
+                        </span>
+                        {% if food.veg %}
+                        <span class="tag" style="background: linear-gradient(135deg, #66bb6a, #4caf50); padding: 5px 15px; border-radius: 25px; font-size: 12px; color: white; margin-right: 10px; text-transform: uppercase; font-weight: bold; transition: transform 0.3s ease;">
+                            Vegetarian
+                        </span>
+                        {% endif %}
                     </div>
-                    <span class="tag">{{ food.type }}</span>
-                    {% if food.veg %}
-                    <span class="tag">Vegetarian</span>
-                    {% endif %}
                 </div>
             </a>
             {% endfor %}
         </div>
         
+        <style>
+            .food-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            }
+            .food-card:hover .food-name {
+                color: #e91e63;
+            }
+            .food-card:hover .tag {
+                transform: translateY(-3px);
+            }
+            .food-image:hover {
+                transform: scale(1.05);
+            }
+            .food-info {
+                transition: transform 0.3s ease;
+            }
+            .food-info:hover {
+                transform: translateX(5px);
+            }
+        </style>
+        
+
     </div>
-    <a href="/homepage" style="position: fixed; bottom: 20px; right: 20px; background-color: rgb(255, 75, 51); color: white; padding: 15px; border-radius: 50%; font-size: 24px; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); animation: float 2s infinite ease-in-out;">
+    <a href="/homepage"
+        style="position: fixed; bottom: 20px; right: 20px; background-color: rgb(255, 75, 51); color: white; padding: 15px; border-radius: 50%; font-size: 24px; text-align: center; text-decoration: none; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); animation: float 2s infinite ease-in-out;">
         🏠
     </a>
-    
+
     <style>
         @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0); }
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 </body>
+
 </html>

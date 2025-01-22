@@ -1,8 +1,10 @@
+from datetime import datetime
 import re
 from flask import Flask, render_template, request, redirect, url_for, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
+import pytz
 
 # Load environment variables from .env file
 load_dotenv()
@@ -20,6 +22,14 @@ client = MongoClient(MONGO_URI)
 db = client.food_app
 food_collection = db.foods
 users_db = db.users
+visits_db = db.visits  # Creating a collection for storing visit data
+
+# Helper function to get IST time
+def get_ist_time():
+    # Define Indian Standard Time (IST) timezone
+    IST = pytz.timezone('Asia/Kolkata')
+    # Get the current time in UTC and convert it to IST
+    return datetime.now(IST)
 
 @app.route("/", methods=["GET", "POST"])
 def login():
@@ -33,6 +43,11 @@ def login():
         # Check if user exists and if the password matches
         if user and user["password"] == password:
             session["user"] = username  # Store username in session
+            
+            # Store the visit information
+            visit_time = get_ist_time()
+            visits_db.insert_one({"username": username, "time": visit_time})
+            
             return redirect(url_for("homepage"))
         else:
             return "Invalid login. Please try again."
@@ -54,6 +69,11 @@ def register():
             # Save user details in the MongoDB "users" collection
             users_db.insert_one({"username": username, "password": password})
             session["user"] = username  # Log the user in immediately
+            
+            # Store the visit information right after registration
+            visit_time = get_ist_time()
+            visits_db.insert_one({"username": username, "time": visit_time})
+            
             return redirect(url_for("homepage"))
         else:
             return "Please fill in both fields."

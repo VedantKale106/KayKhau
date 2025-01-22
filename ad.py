@@ -591,20 +591,7 @@ food_data = [
         "landmark": "Near Akurdi Raiway station",
         "veg": True,
         "otheroptions": ["Various types of Vada Pav"]
-    },
-    {   "name": "Gu",
-        "location": "https://maps.app.goo.gl/tKxkw6qvofx6yz6z6",
-        "hotelname": "Toilet",
-        "type": "Other",
-        "rating": 5,
-        "price": "Free",
-        "quantity": 1000,
-        "time": "All Day",
-        "imageurl": "static/images/gu.jpeg", 
-        "landmark": "Other",
-        "veg": True,
-        "otheroptions": ["Various types of Gu"]
-    },
+    }
 ]
 
 # Insert food data into MongoDB
