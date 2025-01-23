@@ -18,7 +18,7 @@ food_collection.delete_many({})
 # Dummy food data with the same image for all foods
 food_data = [
     {
-        "name": "Rice Plate",
+        "name": "Rice Plate Aaisaheb",
         "location": "https://maps.app.goo.gl/UGqcY1ocJHVq1EkRA",
         "hotelname": "Aaisaheb Mess",
         "type": "Rice Plate",
@@ -32,7 +32,7 @@ food_data = [
         "otheroptions": ["Various types of Maharashtrian foods"]
     },
     {
-        "name": "Rice Plate",
+        "name": "Rice Plate Maitri Katta",
         "location": "https://maps.app.goo.gl/RNBrdZvUgWT7f6QA6",
         "hotelname": "Maitri Katta Mess",
         "type": "Rice Plate",
@@ -46,21 +46,7 @@ food_data = [
         "otheroptions": ["Various types of Maharashtrian foods"]
     },
     {
-        "name": "Rice Plate",
-        "location": "https://maps.app.goo.gl/bGWSTA4fBRBik4EH6",
-        "hotelname": "Maitri Katta Mess",
-        "type": "Rice Plate",
-        "rating": 4.5,
-        "price": 80,
-        "quantity": 1,
-        "time": "All Day",
-        "imageurl": "image.jpg", 
-        "landmark": "Mess Gully",
-        "veg": True,
-        "otheroptions": ["Various types of Maharashtrian foods"]
-    },
-    {
-        "name": "Rice Plate",
+        "name": "Rice Plate Tuljabhavani",
         "location": "https://maps.app.goo.gl/DVu2QAB5pxZxR5fW7",
         "hotelname": "Tuljabhavani Mess",
         "type": "Rice Plate",
@@ -74,7 +60,7 @@ food_data = [
         "otheroptions": ["Various types of Maharashtrian foods"]
     },
     {
-        "name": "Misal",
+        "name": "Misal PM",
         "location": "https://maps.app.goo.gl/nF53Jh9QE2NXD4dg6",
         "hotelname": "PM Misal",
         "type": "Misal",
@@ -102,7 +88,7 @@ food_data = [
         "otheroptions": ["Pohe, Dal Pakwan"]
     },
     {
-        "name": "Dalcha Rice",
+        "name": "Dalcha Rice 7 Mitranchi",
         "location": "https://maps.app.goo.gl/MydWTqRE3VXhPimC6",
         "hotelname": "7 Mitranchi Dalcha Rice",
         "type": "Rice",
@@ -116,7 +102,7 @@ food_data = [
         "otheroptions": ["Nilanga Rice"]
     },
     {
-        "name": "Chinese",
+        "name": "Maharashtra Chinese",
         "location": "https://maps.app.goo.gl/vQXqWYLiWNtwaTpSA",
         "hotelname": "Maharashtra Hotel",
         "type": "Chinese",
@@ -130,7 +116,7 @@ food_data = [
         "otheroptions": ["Various Chinese Dishes"]
     },
     {
-        "name": "Chicken Biryani",
+        "name": "Maharashtra Biryani",
         "location": "https://maps.app.goo.gl/vQXqWYLiWNtwaTpSA",
         "hotelname": "Maharashtra Hotel",
         "type": "Biryani",
@@ -158,7 +144,7 @@ food_data = [
         "otheroptions": ["Various Types of Shawarmas"]
     },
     {
-        "name": "Medu Wada",
+        "name": "Medu Wada Gangotree",
         "location": "https://maps.app.goo.gl/bxwvVCWqfnuiCvHw9",
         "hotelname": "Gangotree Fast Food",
         "type": "South Indian",
@@ -172,7 +158,7 @@ food_data = [
         "otheroptions": ["Idli, Dosa"]
     },
     {
-        "name": "Veg Biryani",
+        "name": "Veg Biryani Gangotree",
         "location": "https://maps.app.goo.gl/bxwvVCWqfnuiCvHw9",
         "hotelname": "Gangotree Fast Food",
         "type": "Biryani",
@@ -186,7 +172,7 @@ food_data = [
         "otheroptions": ["Various Maharashtraian Dishes"]
     },
     {
-        "name": "Rice Plate",
+        "name": "Rice Plate Gangotree",
         "location": "https://maps.app.goo.gl/bxwvVCWqfnuiCvHw9",
         "hotelname": "Gangotree Fast Food",
         "type": "Rice Plate",
@@ -200,7 +186,7 @@ food_data = [
         "otheroptions": ["Various Maharashtraian Dishes"]
     },
     {
-        "name": "Chicken Biryani",
+        "name": "Gaarva Chicken Biryani",
         "location": "https://maps.app.goo.gl/FQVJg86cRFfzmsBd6",
         "hotelname": "Gaarva Biryani",
         "type": "Biryani",
@@ -214,7 +200,7 @@ food_data = [
         "otheroptions": ["Various types of biryani"]
     },
     {
-        "name": "Misal Paav",
+        "name": "Misal Paav CSK",
         "location": "https://maps.app.goo.gl/FQVJg86cRFfzmsBd6",
         "hotelname": "CSK",
         "type": "Misal",
@@ -228,7 +214,7 @@ food_data = [
         "otheroptions": ["Various types of Foods"]
     },
     {
-        "name": "Noodles",
+        "name": "Noodles CSK",
         "location": "https://maps.app.goo.gl/FQVJg86cRFfzmsBd6",
         "hotelname": "CSK",
         "type": "Misal",
@@ -242,7 +228,7 @@ food_data = [
         "otheroptions": ["Various types of Foods"]
     },
     
-    {   "name": "Medu Vada",
+    {   "name": "Medu Vada CSK",
         "location": "https://maps.app.goo.gl/a3aBg76Sk9DcNDQX8",
         "hotelname": "CSK",
         "type": "South Indian",
@@ -256,7 +242,7 @@ food_data = [
         "otheroptions": ["Various types of Foods South Indian"]
     },
 
-    {   "name": "Idli",
+    {   "name": "Idli CSK",
         "location": "https://maps.app.goo.gl/a3aBg76Sk9DcNDQX8",
         "hotelname": "CSK",
         "type": "South Indian",
@@ -270,7 +256,7 @@ food_data = [
         "otheroptions": ["Various types of Foods South Indian"]
     },
 
-    {   "name": "Rice Plate",
+    {   "name": "Rice Plate CSK",
         "location": "https://maps.app.goo.gl/a3aBg76Sk9DcNDQX8",
         "hotelname": "CSK",
         "type": "Rice Plate",
@@ -284,7 +270,7 @@ food_data = [
         "otheroptions": ["Various types of Maharashtrian Foods"]
     },
 
-    {   "name": "Rice Plate",
+    {   "name": "Rice Plate Morya",
         "location": "https://maps.app.goo.gl/TPPF3pjZWyantBgj9",
         "hotelname": "Morya",
         "type": "Rice Plate",
@@ -298,10 +284,10 @@ food_data = [
         "otheroptions": ["Various types of Maharashtrian Foods"]
     }, 
 
-    {   "name": "Vada Pav",
+    {   "name": "Vada Pav Morya",
         "location": "https://maps.app.goo.gl/TPPF3pjZWyantBgj9",
         "hotelname": "Morya",
-        "type": "Vada pav",
+        "type": "Vada Pav",
         "rating": 4.5,
         "price": 15,
         "quantity": 1,
@@ -312,37 +298,10 @@ food_data = [
         "otheroptions": ["Various types of Maharashtrian Foods"]
     },
 
-    {   "name": "Tea",
-        "location": "https://maps.app.goo.gl/TPPF3pjZWyantBgj9",
-        "hotelname": "Morya",
-        "type": "Tea",
-        "rating": 4.5,
-        "price": 12,
-        "quantity": 1,
-        "time": "All Day",
-        "imageurl": "morya.jpeg", 
-        "landmark": "PCCOE",
-        "veg": True,
-        "otheroptions": ["Various types of cold drinks"]
-    },
 
-    {   "name": "Rice Plate",
-        "location": "https://maps.app.goo.gl/TPPF3pjZWyantBgj9",
-        "hotelname": "Morya",
-        "type": "Rice Plate",
-        "rating": 4.5,
-        "price": 80,
-        "quantity": 1,
-        "time": "All Day",
-        "imageurl": "morya.jpeg", 
-        "landmark": "PCCOE",
-        "veg": True,
-        "otheroptions": ["Various types of Maharashtrian Foods"]
-    },
-
-    {   "name": "Rice Plate",
+    {   "name": "Rice Plate Savi",
         "location": "https://maps.app.goo.gl/YEt2vjiKYGBupirp7",
-        "hotelname": "Savi",
+        "hotelname": "Savi Mess",
         "type": "Rice Plate",
         "rating": 4.5,
         "price": 80,
@@ -354,7 +313,7 @@ food_data = [
         "otheroptions": ["Various types of Maharashtrian Foods"]
     },
 
-    {   "name": "Burger",
+    {   "name": "Veg Burger SK",
         "location": "https://maps.app.goo.gl/NruKLr7133EWzg198",
         "hotelname": "SK's Crown Burger ",
         "type": "Burger",
@@ -368,7 +327,7 @@ food_data = [
         "otheroptions": ["Various types of Burgers"]
     },
 
-    {   "name": "Chicken Burger",
+    {   "name": "Chicken Burger SK",
         "location": "https://maps.app.goo.gl/NruKLr7133EWzg198",
         "hotelname": "SK's Crown Burger ",
         "type": "Burger",
@@ -382,7 +341,7 @@ food_data = [
         "otheroptions": ["Various types of Burgers"]
     },
 
-    {   "name": "Samosa",
+    {   "name": "Samosa city",
         "location": "https://maps.app.goo.gl/zcpWBmA3ZsXL3obP6",
         "hotelname": "City Samosa ",
         "type": "Samosa",
@@ -396,7 +355,7 @@ food_data = [
         "otheroptions": ["Various types of Samosa"]
     },
 
-    {   "name": "Rice Plate",
+    {   "name": "Rice Plate Mahalaxmi",
         "location": "https://maps.app.goo.gl/DkiynykftnL1NF9F9",
         "hotelname": "Shree Mahalaxmi Mess",
         "type": "Rice Plate",
@@ -410,7 +369,7 @@ food_data = [
         "otheroptions": ["Various types of Maharashtrian Foods"]
     },
 
-    {   "name": "Biryani ",
+    {   "name": "Hyderabadi Veg Biryani ",
         "location": "https://maps.app.goo.gl/rrZGshE7wo3DYw8p8",
         "hotelname": "Hyderabadi Jayka Biryani",
         "type": "Biryani",
@@ -424,7 +383,7 @@ food_data = [
         "otheroptions": ["Various types of Biryani"]
     },
 
-    {   "name": "Chicken Biryani ",
+    {   "name": "Hyderabadi Jayka Chicken Biryani ",
         "location": "https://maps.app.goo.gl/rrZGshE7wo3DYw8p8",
         "hotelname": "Hyderabadi Jayka Biryani",
         "type": "Biryani",
@@ -466,7 +425,7 @@ food_data = [
         "otheroptions": ["Various types of cold drinks"]
     },
 
-    {   "name": "Rice Plate",
+    {   "name": "Rice Plate Shreyas",
         "location": "https://maps.app.goo.gl/nuFK4TrcRJHBMyFMA",
         "hotelname": "Hotel Shreyas",
         "type": "Rice Plate",
@@ -481,7 +440,7 @@ food_data = [
     },
 
 
-    {   "name": "Dosa",
+    {   "name": "Dosa Dakshin",
         "location": "https://maps.app.goo.gl/7LXuvSwFPuroqNPy6",
         "hotelname": "Dakshin Dosa",
         "type": "Dosa",
@@ -495,7 +454,7 @@ food_data = [
         "otheroptions": ["Various types of South Indian Food"]
     },
 
-    {   "name": "Misal",
+    {   "name": "Misal Shindeshahi",
         "location": "https://maps.app.goo.gl/xdAqN2A8NQ1SX7Cz6",
         "hotelname": "Shindeshahi Amruttulya",
         "type": "Misal",
@@ -509,7 +468,7 @@ food_data = [
         "otheroptions": ["Various types of Food"]
     },
 
-    {   "name": "Chicken Biryani ",
+    {   "name": "Laziz Chicken Biryani",
         "location": "https://maps.app.goo.gl/WbngdNj7pRXwiofr7",
         "hotelname": " Laziz Biryani",
         "type": "Biryani",
@@ -537,7 +496,7 @@ food_data = [
         "otheroptions": ["Various types of Juice"]
     },
 
-    {   "name": "Dal Bati",
+    {   "name": "Dal Bati Sugam",
         "location": "https://maps.app.goo.gl/1NN9Gs1N22pF5tZK7",
         "hotelname": "Sugam Pure Veg Dining",
         "type": "Dal Bati",
@@ -551,7 +510,7 @@ food_data = [
         "otheroptions": ["Various types of rajasthani Food"]
     },
 
-    {   "name": "Rice Plate",
+    {   "name": "Rice Plate Sarovar",
         "location": "https://maps.app.goo.gl/1NN9Gs1N22pF5tZK7 ",
         "hotelname": "Sarovar",
         "type": "Rice Plate",
@@ -565,7 +524,7 @@ food_data = [
         "otheroptions": ["Various types of Indian Food"]
     },
 
-    {   "name": "Vada Pav",
+    {   "name": "Talbidkar Vada Pav",
         "location": "https://maps.app.goo.gl/xufVJebaDxTq44jg6",
         "hotelname": "Talbidkar vadawale",
         "type": "Vada Pav",
@@ -579,7 +538,7 @@ food_data = [
         "otheroptions": ["Various types of Vada Pav"]
     },
 
-    {   "name": "Vada Pav",
+    {   "name": "Kokate Vada Pav",
         "location": "https://maps.app.goo.gl/t3yaXpqNzf2jpPSdA",
         "hotelname": "Kokate vada pav",
         "type": "Vada Pav",
