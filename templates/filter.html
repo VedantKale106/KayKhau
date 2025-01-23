@@ -338,27 +338,35 @@
         </form>
 
 
-        <div class="results-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px;">
+        <div class="results-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px;">
             {% for food in foods %}
             <a href="{{ url_for('food_details', food_name=food.name) }}" class="food-card"
-               style="display: block; background-color: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); overflow: hidden; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;">
-                <div class="food-info" style="padding: 20px; display: flex; flex-direction: row; align-items: center; text-align: left;">
+                style="display: block; background-color: #fff; border-radius: 15px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); overflow: hidden; text-decoration: none; transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;">
+                <div class="food-info"
+                    style="padding: 20px; display: flex; flex-direction: row; align-items: center; text-align: left;">
                     <!-- Image on the left -->
-                    <img src="{{ food.imageurl }}" alt="{{ food.name }}" class="food-image"
-                         style="width: 100px; height: 100px; border-radius: 10%; object-fit: cover; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+                    <img src="{{ url_for('static', filename='images/' + food.imageurl) }}" alt="{{ food.name }}"
+                        class="food-image"
+                        style="width: 100px; height: 100px; border-radius: 10%; object-fit: cover; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;">
+
                     <!-- Food name on the right -->
-                    <h3 class="food-name" style="font-size: 20px; font-weight: bold; color: #333; margin-left: 15px; transition: color 0.3s ease;">{{ food.name }}</h3>
+                    <h3 class="food-name"
+                        style="font-size: 20px; font-weight: bold; color: #333; margin-left: 15px; transition: color 0.3s ease;">
+                        {{ food.name }}</h3>
                 </div>
                 <div class="food-details" style="padding: 0 20px 20px; font-size: 14px; color: #777; line-height: 1.5;">
                     <p>{{ food.hotelname }} • {{ food.landmark }}</p>
                     <p>Rating: {{ food.rating }} ⭐</p>
                     <p class="food-price" style="font-weight: bold; color: #e91e63;">₹{{ food.price }}</p>
                     <div class="tags" style="margin-top: 10px; display: flex; flex-wrap: wrap;">
-                        <span class="tag" style="background: linear-gradient(135deg, #ff7b7b, #ff62a1); padding: 5px 15px; border-radius: 25px; font-size: 12px; color: white; margin-right: 10px; text-transform: uppercase; font-weight: bold; transition: transform 0.3s ease;">
+                        <span class="tag"
+                            style="background: linear-gradient(135deg, #ff7b7b, #ff62a1); padding: 5px 15px; border-radius: 25px; font-size: 12px; color: white; margin-right: 10px; text-transform: uppercase; font-weight: bold; transition: transform 0.3s ease;">
                             {{ food.type }}
                         </span>
                         {% if food.veg %}
-                        <span class="tag" style="background: linear-gradient(135deg, #66bb6a, #4caf50); padding: 5px 15px; border-radius: 25px; font-size: 12px; color: white; margin-right: 10px; text-transform: uppercase; font-weight: bold; transition: transform 0.3s ease;">
+                        <span class="tag"
+                            style="background: linear-gradient(135deg, #66bb6a, #4caf50); padding: 5px 15px; border-radius: 25px; font-size: 12px; color: white; margin-right: 10px; text-transform: uppercase; font-weight: bold; transition: transform 0.3s ease;">
                             Vegetarian
                         </span>
                         {% endif %}
@@ -367,29 +375,34 @@
             </a>
             {% endfor %}
         </div>
-        
+
         <style>
             .food-card:hover {
                 transform: translateY(-10px);
                 box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
             }
+
             .food-card:hover .food-name {
                 color: #e91e63;
             }
+
             .food-card:hover .tag {
                 transform: translateY(-3px);
             }
+
             .food-image:hover {
                 transform: scale(1.05);
             }
+
             .food-info {
                 transition: transform 0.3s ease;
             }
+
             .food-info:hover {
                 transform: translateX(5px);
             }
         </style>
-        
+
 
     </div>
     <a href="/homepage"

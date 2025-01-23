@@ -26,7 +26,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/aaisaheb.jpg", 
+        "imageurl": "aaisaheb.jpg", 
         "landmark": "Mess Gully",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian foods"]
@@ -40,7 +40,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/maitrikatta.jpg", 
+        "imageurl": "maitrikatta.jpg", 
         "landmark": "Mess Gully",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian foods"]
@@ -54,7 +54,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/image.jpg", 
+        "imageurl": "image.jpg", 
         "landmark": "Mess Gully",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian foods"]
@@ -68,7 +68,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/image.jpg",  
+        "imageurl": "image.jpg",  
         "landmark": "Mess Gully",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian foods"]
@@ -82,7 +82,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/pm.jpg", 
+        "imageurl": "pm.jpg", 
         "landmark": "Akurdi Railway Station",
         "veg": True,
         "otheroptions": ["Misal and Bhel"]
@@ -96,7 +96,7 @@ food_data = [
         "price": 50,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/krushnai.png",  
+        "imageurl": "krushnai.png",  
         "landmark": "Akurdi Railway Station",
         "veg": True,
         "otheroptions": ["Pohe, Dal Pakwan"]
@@ -110,7 +110,7 @@ food_data = [
         "price": 20,
         "quantity": 2,
         "time": "All Day",
-        "imageurl": "static/images/image.jpg",  
+        "imageurl": "image.jpg",  
         "landmark": "Akurdi Railway Station",
         "veg": True,
         "otheroptions": ["Nilanga Rice"]
@@ -124,7 +124,7 @@ food_data = [
         "price": 100,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/maharashtra.jpg",  
+        "imageurl": "maharashtra.jpg",  
         "landmark": "Akurdi Railway Station",
         "veg": False,
         "otheroptions": ["Various Chinese Dishes"]
@@ -138,7 +138,7 @@ food_data = [
         "price": 120,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/maharashtra.jpg",  
+        "imageurl": "maharashtra.jpg",  
         "landmark": "Akurdi Railway Station",
         "veg": False,
         "otheroptions": ["Veg Biryani"]
@@ -152,7 +152,7 @@ food_data = [
         "price": 150,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/shwarma.jpg",  
+        "imageurl": "shwarma.jpg",  
         "landmark": "Akurdi Railway Station",
         "veg": False,
         "otheroptions": ["Various Types of Shawarmas"]
@@ -166,7 +166,7 @@ food_data = [
         "price": 70,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/gangotree.jpg",  
+        "imageurl": "gangotree.jpg",  
         "landmark": "Akurdi Railway Station",
         "veg": True,
         "otheroptions": ["Idli, Dosa"]
@@ -180,7 +180,7 @@ food_data = [
         "price": 70,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/gangotree.jpg",  
+        "imageurl": "gangotree.jpg",  
         "landmark": "Akurdi Railway Station",
         "veg": True,
         "otheroptions": ["Various Maharashtraian Dishes"]
@@ -194,7 +194,7 @@ food_data = [
         "price": 100,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/gangotree.jpg",  
+        "imageurl": "gangotree.jpg",  
         "landmark": "Akurdi Railway Station",
         "veg": True,
         "otheroptions": ["Various Maharashtraian Dishes"]
@@ -208,7 +208,7 @@ food_data = [
         "price": 100,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/biryani.jpeg",  
+        "imageurl": "biryani.jpeg",  
         "landmark": "Gurudwara Chowk",
         "veg": False,
         "otheroptions": ["Various types of biryani"]
@@ -222,7 +222,7 @@ food_data = [
         "price": 70,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/csk.jpg",  
+        "imageurl": "csk.jpg",  
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Foods"]
@@ -236,7 +236,7 @@ food_data = [
         "price": 70,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/csk.jpg",  
+        "imageurl": "csk.jpg",  
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Foods"]
@@ -250,7 +250,7 @@ food_data = [
         "price": 40,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/csk.jpg",  
+        "imageurl": "csk.jpg",  
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Foods South Indian"]
@@ -264,7 +264,7 @@ food_data = [
         "price": 50,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/csk.jpg",  
+        "imageurl": "csk.jpg",  
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Foods South Indian"]
@@ -278,7 +278,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/csk.jpg", 
+        "imageurl": "csk.jpg", 
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian Foods"]
@@ -292,7 +292,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/morya.jpeg", 
+        "imageurl": "morya.jpeg", 
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian Foods"]
@@ -306,7 +306,7 @@ food_data = [
         "price": 15,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/morya.jpeg", 
+        "imageurl": "morya.jpeg", 
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian Foods"]
@@ -320,7 +320,7 @@ food_data = [
         "price": 12,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/morya.jpeg", 
+        "imageurl": "morya.jpeg", 
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of cold drinks"]
@@ -334,7 +334,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/morya.jpeg", 
+        "imageurl": "morya.jpeg", 
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian Foods"]
@@ -348,7 +348,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/savi.jpg", 
+        "imageurl": "savi.jpg", 
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian Foods"]
@@ -362,7 +362,7 @@ food_data = [
         "price": 110,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/sk.jpg", 
+        "imageurl": "sk.jpg", 
         "landmark": "PCCOE",
         "veg": True,
         "otheroptions": ["Various types of Burgers"]
@@ -376,7 +376,7 @@ food_data = [
         "price": 160,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/sk.jpg", 
+        "imageurl": "sk.jpg", 
         "landmark": "PCCOE",
         "veg": False,
         "otheroptions": ["Various types of Burgers"]
@@ -390,7 +390,7 @@ food_data = [
         "price": 18,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/city.jpg", 
+        "imageurl": "city.jpg", 
         "landmark": "Dharmaraj Chowk",
         "veg": True,
         "otheroptions": ["Various types of Samosa"]
@@ -404,7 +404,7 @@ food_data = [
         "price": 80,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/laxmi.jpg", 
+        "imageurl": "laxmi.jpg", 
         "landmark": "Dharmaraj Chowk",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian Foods"]
@@ -418,7 +418,7 @@ food_data = [
         "price": 140,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/biryani.jpeg", 
+        "imageurl": "biryani.jpeg", 
         "landmark": "Dharmaraj Chowk",
         "veg": True,
         "otheroptions": ["Various types of Biryani"]
@@ -432,7 +432,7 @@ food_data = [
         "price": 140,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/biryani.jpeg", 
+        "imageurl": "biryani.jpeg", 
         "landmark": "Dharmaraj Chowk",
         "veg": False,
         "otheroptions": ["Various types of Biryani"]
@@ -446,7 +446,7 @@ food_data = [
         "price": 20,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/chickenroll.jpeg", 
+        "imageurl": "chickenroll.jpeg", 
         "landmark": "Dharmaraj Chowk",
         "veg": False,
         "otheroptions": ["Various types of rolls"]
@@ -460,7 +460,7 @@ food_data = [
         "price": 30,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/cc.jpeg", 
+        "imageurl": "cc.jpeg", 
         "landmark": "Dharmaraj Chowk",
         "veg": True,
         "otheroptions": ["Various types of cold drinks"]
@@ -474,7 +474,7 @@ food_data = [
         "price": 70,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/shreyas.jpg", 
+        "imageurl": "shreyas.jpg", 
         "landmark": "Dharmaraj Chowk",
         "veg": True,
         "otheroptions": ["Various types of Maharashtrian Foods"]
@@ -489,7 +489,7 @@ food_data = [
         "price": 60,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/dosa.jpeg", 
+        "imageurl": "dosa.jpeg", 
         "landmark": "Dharmaraj Chowk",
         "veg": True,
         "otheroptions": ["Various types of South Indian Food"]
@@ -503,7 +503,7 @@ food_data = [
         "price": 60,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/shindeshahi.jpg", 
+        "imageurl": "shindeshahi.jpg", 
         "landmark": "Dharmaraj Chowk",
         "veg": True,
         "otheroptions": ["Various types of Food"]
@@ -517,7 +517,7 @@ food_data = [
         "price": 120,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/biryani.jpeg", 
+        "imageurl": "biryani.jpeg", 
         "landmark": "Dharmaraj Chowk",
         "veg": False,
         "otheroptions": ["Various types of Biryani"]
@@ -531,7 +531,7 @@ food_data = [
         "price": 50,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/juice.jpg", 
+        "imageurl": "juice.jpg", 
         "landmark": "Maa Vaishino Devi Dham",
         "veg": True,
         "otheroptions": ["Various types of Juice"]
@@ -545,7 +545,7 @@ food_data = [
         "price": 90,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/dalbati.jpeg", 
+        "imageurl": "dalbati.jpeg", 
         "landmark": "Maa Vaishino Devi Dham",
         "veg": True,
         "otheroptions": ["Various types of rajasthani Food"]
@@ -559,7 +559,7 @@ food_data = [
         "price": 60,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/riceplate.jpeg", 
+        "imageurl": "riceplate.jpeg", 
         "landmark": "Maa Vaishino Devi Dham",
         "veg": True,
         "otheroptions": ["Various types of Indian Food"]
@@ -573,7 +573,7 @@ food_data = [
         "price": 18,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/wadapaav.jpeg", 
+        "imageurl": "wadapaav.jpeg", 
         "landmark": "Maa Vaishino Devi Dham",
         "veg": True,
         "otheroptions": ["Various types of Vada Pav"]
@@ -587,7 +587,7 @@ food_data = [
         "price": 18,
         "quantity": 1,
         "time": "All Day",
-        "imageurl": "static/images/kokate.jpg", 
+        "imageurl": "kokate.jpg", 
         "landmark": "Near Akurdi Raiway station",
         "veg": True,
         "otheroptions": ["Various types of Vada Pav"]

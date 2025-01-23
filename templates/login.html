@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,39 +10,50 @@
         .pulse {
             animation: pulse 1.5s infinite;
         }
+
         @keyframes pulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
         }
     </style>
 </head>
+
 <body class="bg-gradient-to-r from-green-400 to-yellow-200 flex items-center justify-center min-h-screen p-4">
     <div class="bg-white rounded-lg shadow-lg p-8 max-w-sm w-full">
         <h2 class="text-center text-3xl font-bold text-green-600 mb-6">KayKhau</h2>
         <form method="POST" action="{{ url_for('login') }}">
             <div class="mb-4">
                 <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-                <input type="text" id="username" name="username" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Username">
+                <input type="text" id="username" name="username" required
+                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="Username">
             </div>
-        
+
             <div class="mb-6">
                 <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                <input type="password" id="password" name="password" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="">
+                <input type="password" id="password" name="password" required
+                    class="mt-1 block w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                    placeholder="">
             </div>
-        
-            <button type="submit" class="w-full bg-yellow-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition duration-300 pulse">
+
+            <button type="submit"
+                class="w-full bg-yellow-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition duration-300 pulse">
                 Login
             </button>
         </form>
-        
+
         <p class="mt-4 text-center text-gray-600">
-            Don't have an account? 
+            Don't have an account?
             <a href="/register" class="text-green-500 hover:text-green-600 font-bold">Sign up</a>
         </p>
     </div>
 </body>
+
 </html>

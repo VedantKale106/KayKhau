@@ -48,6 +48,7 @@
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow-md);
+            backdrop-filter: blur(10px);
         }
 
         .header-content {
@@ -66,6 +67,11 @@
             text-align: left;
             text-transform: uppercase;
             letter-spacing: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         nav {
@@ -83,12 +89,28 @@
             background-color: rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--white);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::before {
+            transform: scaleX(1);
         }
 
         nav a:hover {
-            background-color: var(--white);
-            color: var(--primary);
-            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.3);
         }
 
         .hamburger-menu {
@@ -105,26 +127,59 @@
             height: 4px;
             background-color: var(--white);
             border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
         main {
             margin-top: 8rem;
             padding: 2rem 1rem;
             flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .featured-food {
             max-width: 800px;
+            width: 100%;
             margin: 0 auto;
             background-color: var(--card-bg);
             border-radius: var(--border-radius-lg);
             padding: 2rem;
             box-shadow: var(--shadow-lg);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-food::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.1),
+                    transparent);
+            transform: rotate(-45deg);
+            animation: shine 3s infinite linear;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotate(-45deg) translateX(-100%);
+            }
+
+            100% {
+                transform: rotate(-45deg) translateX(100%);
+            }
         }
 
         .featured-food:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
         .food-info {
@@ -133,6 +188,8 @@
             align-items: center;
             text-align: center;
             gap: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .food-image {
@@ -142,6 +199,11 @@
             object-fit: cover;
             border-radius: var(--border-radius-md);
             box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+        }
+
+        .food-image:hover {
+            transform: scale(1.05);
         }
 
         .category-tag {
@@ -153,6 +215,10 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 1px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            transform: rotate(10deg);
         }
 
         .food-title {
@@ -160,6 +226,7 @@
             color: var(--primary);
             font-weight: 700;
             margin: 0.5rem 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .food-type {
@@ -191,11 +258,31 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
-            background-color: var(--primary);
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
         footer {
@@ -216,31 +303,23 @@
         .social-icon {
             color: var(--white);
             font-size: 1.5rem;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .social-icon:hover {
-            transform: scale(1.2);
+            transform: scale(1.2) rotate(360deg);
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
+            header {
+                padding: 0.5rem;
+            }
+
             .logo {
                 font-size: 1.5rem;
             }
 
-            nav {
-                display: none;
-                flex-direction: column;
-                gap: 1rem;
-                width: 100%;
-                background-color: var(--primary);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding: 1rem;
-                z-index: 1;
-            }
 
             nav a {
                 color: var(--white);
@@ -249,14 +328,91 @@
                 text-align: center;
             }
 
-            .hamburger-menu {
-                display: flex;
+
+
+            main {
+                margin-top: 6rem;
+                padding: 1rem;
             }
 
-            /* Show the menu when hamburger is clicked */
-            .nav-links.show {
-                display: flex;
+            .featured-food {
+                padding: 1.5rem;
             }
+
+            .food-image {
+                max-width: 250px;
+                height: 250px;
+            }
+
+            .food-title {
+                font-size: 1.5rem;
+            }
+
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            header {
+                padding: 1rem;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1000;
+                /* Ensure it's above other elements */
+                background: linear-gradient(135deg, var(--primary), var(--primary-light));
+                /* Add full background */
+                box-shadow: var(--shadow-md);
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: var(--primary);
+                position: absolute;
+                top: 60px;
+                /* Adjust based on header height */
+                left: 0;
+                padding: 1rem;
+                z-index: 1000;
+                /* Ensure it appears on top */
+                box-shadow: var(--shadow-lg);
+            }
+
+            nav.show {
+                display: flex;
+                /* Ensure the menu shows when toggled */
+            }
+
+            .hamburger-menu {
+                display: flex;
+                /* Make the hamburger menu visible on mobile */
+            }
+
+            .hamburger-bar {
+                background-color: var(--white);
+                /* Ensure visibility of menu bars */
+            }
+        }
+
+        /* Hamburger Menu Animation */
+        .hamburger-menu.active .hamburger-bar:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger-menu.active .hamburger-bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active .hamburger-bar:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
         }
     </style>
 </head>
@@ -274,7 +430,7 @@
                 <a href="{{ url_for('filter_food') }}">Explore by Filters</a>
                 <a href="{{ url_for('logout') }}">Logout</a>
             </nav>
-            <div class="hamburger-menu" onclick="toggleMenu()">
+            <div class="hamburger-menu" onclick="toggleMenu(this)">
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
@@ -282,25 +438,48 @@
         </div>
     </header>
 
-
     <main>
-        <div class="featured-food">
-            <div class="food-info">
-                <img src="{{ food.imageurl }}" alt="{{ food.name }}" class="food-image">
-                <span class="category-tag">Featured Dish</span>
-                <h2 class="food-title">{{ food.name }}</h2>
-                <p class="food-type">{{ food.hotelname }}</p>
-                <p class="food-price">₹{{ food.price }}</p>
-                <div class="actions">
-                    <a href="{{ url_for('food_details', food_name=food.name) }}" class="btn">View Details</a>
-                    <a href="{{ food.location }}" class="btn" target="_blank">View Location</a>
+        <div class="featured-food"
+            style="display: flex; flex-direction: column; align-items: center; padding: 10px; gap: 5px; max-width: 400px; margin: 0 auto;">
+            <div class="food-info" style="text-align: center;">
+                <img src="{{ url_for('static', filename='images/' + food.imageurl) }}" alt="{{ food.name }}"
+                    class="food-image"
+                    style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 5px;">
 
-                    <form action="{{ url_for('homepage') }}" method="GET">
-                        <button type="submit" class="btn">Recommend Another</button>
+                <span class="category-tag"
+                    style="display: inline-block; background-color: var(--primary); color: var(--white); font-size: 14px; padding: 5px 10px; border-radius: 4px; margin-bottom: 5px;">Featured
+                    Dish</span>
+
+                <h2 class="food-title" style="font-size: 18px; font-weight: 600; margin: 5px 0;">{{ food.name }}</h2>
+
+                <p class="food-type" style="font-size: 14px; color: var(--text-light); margin: 2px 0;">{{ food.hotelname
+                    }}</p>
+
+                <p class="food-price"
+                    style="font-size: 16px; font-weight: 500; color: var(--text-dark); margin: 2px 0;">₹{{ food.price }}
+                </p>
+
+                <div class="actions" style="margin-top: 5px;">
+                    <a href="{{ url_for('food_details', food_name=food.name) }}" class="btn"
+                        style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px; display: inline-block; margin: 2px;">
+                        View Details
+                    </a>
+
+                    <a href="{{ food.location }}" class="btn" target="_blank"
+                        style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--primary-light); color: var(--text-dark); text-decoration: none; border-radius: 6px; display: inline-block; margin: 2px;">
+                        View Location
+                    </a>
+
+                    <form action="{{ url_for('homepage') }}" method="GET" style="display: inline-block; margin: 2px;">
+                        <button type="submit" class="btn"
+                            style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--accent); color: var(--white); border: none; border-radius: 6px; cursor: pointer;">
+                            Recommend Another
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
+
     </main>
 
     <footer>
@@ -320,11 +499,13 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script>
-        function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('show');
+        function toggleMenu(hamburger) {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show'); 
+            hamburger.classList.toggle('active'); 
         }
-    </script>
 
+    </script>
 </body>
 
 </html>
