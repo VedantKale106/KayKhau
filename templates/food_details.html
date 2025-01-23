@@ -197,7 +197,7 @@
         </div>
         <div class="food-content">
             <div class="food-image">
-                <img src="{{ url_for('static', filename='images/' + food.imageurl) }}" alt="{{ food.name }}">
+                <img src="{{ url_for('static', filename='images/' + (food.imageurl if food.imageurl else 'image.jpg')) }}" alt="{{ food.name }}">
             </div>
             <div class="food-details">
                 <div class="detail-item">
