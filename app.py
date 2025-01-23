@@ -238,10 +238,14 @@ def hotels():
     return render_template("hotels.html", hotels=hotels)
 
 
+
 @app.route("/hotel/<hotelname>", methods=["GET"])
 def hotel_dishes(hotelname):
-    dishes = food_collection.find({"hotelname": hotelname}).sort("name", 1)
-    return render_template("hotel_dishes.html", hotelname=hotelname, dishes=dishes)
+    # Decode the hotel name to handle spaces or special characters
+    decoded_hotelname = unquote(hotelname)
+    dishes = food_collection.find({"hotelname": decoded_hotelname}).sort("name", 1)
+    return render_template("hotel_dishes.html", hotelname=decoded_hotelname, dishes=dishes)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
