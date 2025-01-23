@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dishes from {{ hotelname }}</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Animations */
+        @keyframes fade-in-down {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-fade-in-down {
+            animation: fade-in-down 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+
+        .home-button {
+            animation: float 2s infinite ease-in-out;
+            transition: all 0.3s ease;
+        }
+
+        .home-button:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-green-600 to-green-500 py-6 shadow-lg">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-white animate-fade-in-down tracking-tight">
+                Dishes from {{ hotelname }}
+            </h1>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 mt-8 pb-16">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for dish in dishes %}
+            <div
+                class="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl animate-fade-in-up group">
+                <!-- Dish Image Container -->
+                <div class="relative h-48 w-full overflow-hidden">
+                    <img src="{{ url_for('static', filename='images/' + dish.imageurl) }}" alt="{{ dish.name }}"
+                        class="w-full h-full object-cover transition duration-300 group-hover:scale-110">
+                </div>
+
+                <!-- Dish Details -->
+                <div class="p-5 text-center bg-gray-50">
+                    <h5 class="text-xl font-bold text-gray-800 mb-2">{{ dish.name }}</h5>
+
+                    <div class="flex justify-center items-center space-x-2 mb-3">
+                        <span class="text-gray-600 font-medium">₹{{ dish.price }}</span>
+                        <span class="text-sm px-2 py-1 rounded-full 
+                            {{ 'bg-green-100 text-green-800' if dish.veg else 'bg-red-100 text-red-800' }}">
+                            {{ 'Veg' if dish.veg else 'Non-Veg' }}
+                        </span>
+                    </div>
+
+                    <div class="flex justify-center items-center text-yellow-500 mb-3">
+                        {% for _ in range(dish.rating|int) %}
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                            <path
+                                d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                        </svg>
+                        {% endfor %}
+                        <span class="text-gray-600 ml-2 text-sm">({{ dish.rating }})</span>
+                    </div>
+
+                    <a href="{{ url_for('food_details', food_name=dish.name) }}" class="inline-block px-6 py-2 text-sm font-semibold text-white bg-green-600 rounded-md 
+                              hover:bg-green-700 transition duration-300 ease-in-out 
+                              transform hover:-translate-y-1 hover:shadow-md active:scale-95">
+                        View Details
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Home Button -->
+    <a href="/homepage" class="home-button fixed bottom-6 right-6 bg-red-500 text-white w-16 h-16 flex items-center justify-center 
+              rounded-full shadow-xl text-3xl hover:bg-red-600 transition duration-300">
+        🏠
+    </a>
+</body>
+
+</html>

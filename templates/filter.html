@@ -295,11 +295,12 @@
                     <label for="landmark">Landmark</label>
                     <select name="landmark" id="landmark" style="padding: 8px; font-size: 14px;">
                         <option value="">All Landmarks</option>
-                        {% for loc in landmark %}
-                        <option value="{{ loc }}" {% if selected_landmark==loc %}selected{% endif %}>{{ loc }}</option>
+                        {% for loc in landmarks %} <!-- Use `landmarks` here to match the route -->
+                        <option value="{{ loc }}" {% if selected_landmark == loc %}selected{% endif %}>{{ loc }}</option>
                         {% endfor %}
                     </select>
                 </div>
+                
 
                 <div class="form-group">
                     <label for="price">Maximum Price (₹)</label>

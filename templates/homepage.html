@@ -41,7 +41,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: linear-gradient(135deg, var(--primary), var(--primary));
             padding: 1rem;
             position: fixed;
             width: 100%;
@@ -427,7 +427,9 @@
             <nav class="nav-links">
                 <a href="{{ url_for('homepage') }}">Home</a>
                 <a href="{{ url_for('all_foods') }}">Explore Delicacies</a>
+                <a href="/hotels">Explore Hotels</a>
                 <a href="{{ url_for('filter_food') }}">Explore by Filters</a>
+                <a href="/feedback">Feedback</a>
                 <a href="{{ url_for('logout') }}">Logout</a>
             </nav>
             <div class="hamburger-menu" onclick="toggleMenu(this)">
@@ -439,47 +441,120 @@
     </header>
 
     <main>
-        <div class="featured-food"
-            style="display: flex; flex-direction: column; align-items: center; padding: 10px; gap: 5px; max-width: 400px; margin: 0 auto;">
-            <div class="food-info" style="text-align: center;">
-                <img src="{{ url_for('static', filename='images/' + food.imageurl) }}" alt="{{ food.name }}"
-                    class="food-image"
-                    style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 5px;">
-
-                <span class="category-tag"
-                    style="display: inline-block; background-color: var(--primary); color: var(--white); font-size: 14px; padding: 5px 10px; border-radius: 4px; margin-bottom: 5px;">Featured
-                    Dish</span>
-
-                <h2 class="food-title" style="font-size: 18px; font-weight: 600; margin: 5px 0;">{{ food.name }}</h2>
-
-                <p class="food-type" style="font-size: 14px; color: var(--text-light); margin: 2px 0;">{{ food.hotelname
-                    }}</p>
-
-                <p class="food-price"
-                    style="font-size: 16px; font-weight: 500; color: var(--text-dark); margin: 2px 0;">₹{{ food.price }}
-                </p>
-
-                <div class="actions" style="margin-top: 5px;">
-                    <a href="{{ url_for('food_details', food_name=food.name) }}" class="btn"
-                        style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px; display: inline-block; margin: 2px;">
-                        View Details
-                    </a>
-
-                    <a href="{{ food.location }}" class="btn" target="_blank"
-                        style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--primary-light); color: var(--text-dark); text-decoration: none; border-radius: 6px; display: inline-block; margin: 2px;">
-                        View Location
-                    </a>
-
-                    <form action="{{ url_for('homepage') }}" method="GET" style="display: inline-block; margin: 2px;">
-                        <button type="submit" class="btn"
-                            style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--accent); color: var(--white); border: none; border-radius: 6px; cursor: pointer;">
-                            Recommend Another
-                        </button>
-                    </form>
+        <div class="featured-food-container" style="position: relative; overflow: hidden; min-height: 100vh;">
+            <!-- Creative Loader (Food item bouncing) -->
+            <div id="loader" class="loader" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 100;">
+                <div class="food-loader" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                    <div class="food-item" style="width: 60px; height: 60px; background-color: #ff6347; border-radius: 50%; position: relative; animation: bounce 1.5s ease-in-out infinite;">
+                        <img src="https://img.icons8.com/ios/50/ffffff/hamburger.png" alt="Food" style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0;">
+                    </div>
+                    <div class="food-item" style="width: 60px; height: 60px; background-color: #ff6347; border-radius: 50%; position: relative; animation: bounce 1.5s ease-in-out infinite 0.5s;">
+                        <img src="https://img.icons8.com/ios/50/ffffff/pizza.png" alt="Food" style="width: 100%; height: 100%; object-fit: contain; position: absolute; top: 0; left: 0;">
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Food Background Icons -->
+            <div class="background-icons" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('static/images/foodbg.jpeg') repeat center center; opacity: 0.1; z-index: 1;"></div>
+        
+            <!-- Food Content -->
+            <div class="featured-food"
+                style="display: flex; flex-direction: column; align-items: center; padding: 10px; gap: 5px; max-width: 400px; margin: 0 auto; position: relative; z-index: 2; opacity: 0; transform: translateY(50px); transition: opacity 1s ease-in-out, transform 1s ease-in-out;">
+                <div class="food-info" style="text-align: center;">
+                    <img src="{{ url_for('static', filename='images/' + food.imageurl) }}" alt="{{ food.name }}"
+                        class="food-image"
+                        style="width: 150px; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 5px;">
+        
+                    <span class="category-tag"
+                        style="display: inline-block; background-color: var(--primary); color: var(--white); font-size: 14px; padding: 5px 10px; border-radius: 4px; margin-bottom: 5px;">Featured
+                        Dish</span>
+        
+                    <h2 class="food-title" style="font-size: 18px; font-weight: 600; margin: 5px 0;">{{ food.name }}</h2>
+        
+                    <p class="food-type" style="font-size: 14px; color: var(--text-light); margin: 2px 0;">{{ food.hotelname
+                        }}</p>
+        
+                    <p class="food-price"
+                        style="font-size: 16px; font-weight: 500; color: var(--text-dark); margin: 2px 0;">₹{{ food.price }}
+                    </p>
+        
+                    <div class="actions" style="margin-top: 5px;">
+                        <a href="{{ url_for('food_details', food_name=food.name) }}" class="btn"
+                            style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--primary); color: var(--white); text-decoration: none; border-radius: 6px; display: inline-block; margin: 2px;">
+                            View Details
+                        </a>
+        
+                        <a href="{{ food.location }}" class="btn" target="_blank"
+                            style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--primary-light); color: var(--text-dark); text-decoration: none; border-radius: 6px; display: inline-block; margin: 2px;">
+                            View Location
+                        </a>
+        
+                        <form action="{{ url_for('homepage') }}" method="GET" style="display: inline-block; margin: 2px;">
+                            <button type="submit" class="btn"
+                                style="font-family: 'Poppins', sans-serif; font-size: 14px; padding: 8px 16px; background-color: var(--accent); color: var(--white); border: none; border-radius: 6px; cursor: pointer;">
+                                Recommend Another
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-
+        
+        <!-- CSS for Loader Animation -->
+        <style>
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+        
+            /* Mobile-friendly styling */
+            @media screen and (max-width: 768px) {
+                .featured-food {
+                    max-width: 100%;
+                    padding: 15px;
+                }
+        
+                .food-info {
+                    padding: 10px;
+                }
+        
+                .food-title {
+                    font-size: 16px;
+                }
+        
+                .food-type, .food-price {
+                    font-size: 12px;
+                }
+        
+                .btn {
+                    font-size: 12px;
+                    padding: 6px 12px;
+                }
+            }
+        </style>
+        
+        <!-- JavaScript to Delay Loader Hide and Fade In Card -->
+        <script>
+            window.onload = function() {
+                // Set a minimum delay of 1 second before hiding the loader and fading in the card
+                setTimeout(function() {
+                    const loader = document.getElementById('loader');
+                    const foodCard = document.querySelector('.featured-food');
+                    
+                    // Hide the loader
+                    loader.style.display = 'none';
+                    
+                    // Fade in the card
+                    foodCard.style.opacity = '1';
+                    foodCard.style.transform = 'translateY(0)';
+                }, 1000); // 1000 milliseconds = 1 second
+            }
+        </script>
+        
     </main>
 
     <footer>
