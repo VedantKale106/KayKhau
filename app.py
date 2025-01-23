@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 import os
 import pytz
+from urllib.parse import unquote
 
 # Load environment variables from .env file
 load_dotenv()
@@ -96,7 +97,9 @@ def homepage():
 
 @app.route("/food/<food_name>")
 def food_details(food_name):
-    food = food_collection.find_one({"name": food_name})
+    # Decode the URL-encoded food name (to handle spaces and other special characters)
+    decoded_food_name = unquote(food_name)
+    food = food_collection.find_one({"name": decoded_food_name})
     return render_template("food_details.html", food=food)
 
 @app.route("/all_foods", methods=["GET", "POST"])
