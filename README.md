@@ -44,10 +44,11 @@ KayKhau is a Flask-based web application that allows users to explore food optio
    python app.py
 
 6. **Open your browser**:
-   Navigate to \`http://127.0.0.1:5000\`.
+   Navigate to \`http://127.0.0.1:5000\'
 
 ## Folder Structure
 
+\`\`\`plaintext
 .
 ├── app.py                  # Main application file
 ├── mongo.py                # MongoDB initialization and dummy data
@@ -61,3 +62,4 @@ KayKhau is a Flask-based web application that allows users to explore food optio
 │   ├── food_details.html   # Food details page
 │   └── homepage.html       # Homepage
 └── static/                 # Static assets (images, CSS, etc.)
+\`\`\`
