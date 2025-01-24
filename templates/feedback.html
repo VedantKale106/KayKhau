@@ -168,15 +168,6 @@
 <body>
     <div class="container">
         <h1>Feedback Form</h1>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        <div class="flash-messages">
-            {% for category, message in messages %}
-            <div class="flash {{ category }}">{{ message }}</div>
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% endwith %}
         <form action="/feedback" method="POST">
             <div class="form-group">
                 <label for="dish">Dish We Missed</label>
