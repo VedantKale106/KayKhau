@@ -48,18 +48,18 @@ KayKhau is a Flask-based web application that allows users to explore food optio
 
 ## Folder Structure
 
-\`\`\`plaintext
+
 .
 ├── app.py                  # Main application file<br>
-├── mongo.py                # MongoDB initialization and dummy data
-├── build.sh                # Build script for deployment
-├── requirements.txt        # Python dependencies
-├── vercel.json             # Vercel configuration
-├── templates/              # HTML templates
-│   ├── all_foods.html      # Food listing page
-│   ├── filter.html         # Food filter page
-│   ├── feedback.html       # Feedback form
-│   ├── food_details.html   # Food details page
-│   └── homepage.html       # Homepage
-└── static/                 # Static assets (images, CSS, etc.)
-\`\`\`
+├── mongo.py                # MongoDB initialization and dummy data<br>
+├── build.sh                # Build script for deployment<br>
+├── requirements.txt        # Python dependencies<br>
+├── vercel.json             # Vercel configuration<br>
+├── templates/              # HTML templates<br>
+│   ├── all_foods.html      # Food listing page<br>
+│   ├── filter.html         # Food filter page<br>
+│   ├── feedback.html       # Feedback form<br>
+│   ├── food_details.html   # Food details page<br>
+│   └── homepage.html       # Homepage<br>
+└── static/                 # Static assets (images, CSS, etc.)<br>
+
