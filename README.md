@@ -50,7 +50,7 @@ KayKhau is a Flask-based web application that allows users to explore food optio
 
 \`\`\`plaintext
 .
-├── app.py                  # Main application file\n
+├── app.py                  # Main application file<br>
 ├── mongo.py                # MongoDB initialization and dummy data
 ├── build.sh                # Build script for deployment
 ├── requirements.txt        # Python dependencies
